@@ -73,7 +73,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"],
-    "*.{json,md,yml,yaml}": ["biome format --write"]
+    "*.json": ["biome format --write"]
   },
   "repository": {
     "type": "git",
