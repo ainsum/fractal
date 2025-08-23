@@ -14,6 +14,7 @@ const createMockDOM = () => {
 };
 
 describe('BrowserUI', () => {
+  // biome-ignore lint/correctness/noUnusedVariables: <explanation>
   let container: HTMLElement;
   let browser: BrowserUI;
 
