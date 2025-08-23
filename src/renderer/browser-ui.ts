@@ -915,6 +915,9 @@ export class BrowserUI {
     // Basic sanitization - in production, use a proper HTML sanitizer
     let sanitized = content;
 
+    // Remove script tags to prevent XSS
+    sanitized = sanitized.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
     // Remove external resources that violate CSP
     sanitized = sanitized.replace(/src=["'](?!data:)/gi, 'data-src="');
     sanitized = sanitized.replace(/href=["']https?:\/\/[^"']*["']/gi, '');
