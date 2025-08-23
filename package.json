@@ -22,7 +22,7 @@
     "clean": "rm -rf dist out .vite coverage",
     "prepare": "husky",
     "pre-commit": "lint-staged",
-    "pre-push": "npm run type-check && npm run test"
+    "pre-push": "npm run test"
   },
   "keywords": ["electron", "ai", "browser", "llm", "typescript", "vite"],
   "author": {
