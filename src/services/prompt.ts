@@ -2,9 +2,9 @@
  * Prompt Service for generating AI prompts and template detection
  */
 
-import { WEBSITE_TEMPLATES } from '../../shared/constants';
-import { logger } from '../../shared/logger';
-import type { WebsiteTemplate } from '../../shared/types';
+import { WEBSITE_TEMPLATES } from '../shared/constants';
+import { logger } from '../shared/logger';
+import type { WebsiteTemplate } from '../shared/types';
 
 export class PromptService {
   constructor() {

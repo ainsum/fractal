@@ -2,9 +2,9 @@
  * Cache Service for managing response caching with LRU implementation
  */
 
-import { PERFORMANCE_CONSTANTS } from '../../shared/constants';
-import { logger } from '../../shared/logger';
-import type { AIResponse } from '../../shared/types';
+import { PERFORMANCE_CONSTANTS } from '../shared/constants';
+import { logger } from '../shared/logger';
+import type { AIResponse } from '../shared/types';
 
 export class CacheService {
   private cache: Map<string, AIResponse> = new Map();

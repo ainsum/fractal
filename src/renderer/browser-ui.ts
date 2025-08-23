@@ -1166,6 +1166,7 @@ export class BrowserUI {
       this.providerSelector.innerHTML = '<option value="auto">Auto</option>';
 
       // Add provider options
+      // biome-ignore lint/complexity/noForEach: <explanation>
       providers.forEach((provider) => {
         const option = document.createElement('option');
         option.value = provider.id;

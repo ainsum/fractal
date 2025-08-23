@@ -9,6 +9,7 @@ import 'dotenv/config';
 import path from 'node:path';
 import { BrowserWindow, Menu, app, ipcMain, shell } from 'electron';
 import started from 'electron-squirrel-startup';
+import { LLMService } from '../services';
 import {
   APP_NAME,
   DEV_CONSTANTS,
@@ -26,7 +27,6 @@ import {
   NavigationError,
   type StreamWebsiteRequest,
 } from '../shared/types';
-import { LLMService } from './services';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {

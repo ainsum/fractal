@@ -3,10 +3,10 @@
  */
 
 import { streamText } from 'ai';
-import { AI_TOKEN_LIMITS, ERROR_CODES } from '../../shared/constants';
-import { logger } from '../../shared/logger';
-import { AIError, type AIStreamChunk } from '../../shared/types';
-import type { ProviderService } from './provider-service';
+import { AI_TOKEN_LIMITS, ERROR_CODES } from '../shared/constants';
+import { logger } from '../shared/logger';
+import { AIError, type AIStreamChunk } from '../shared/types';
+import type { ProviderService } from './provider';
 
 export class StreamingService {
   constructor(private providerService: ProviderService) {

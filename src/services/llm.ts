@@ -4,13 +4,13 @@
  */
 
 import { generateText } from 'ai';
-import { ERROR_CODES } from '../shared/constants';
+import { AI_TOKEN_LIMITS, ERROR_CODES } from '../shared/constants';
 import { logger } from '../shared/logger';
 import { AIError, type AIRequest, type AIResponse } from '../shared/types';
-import { CacheService } from './services/cache-service';
-import { PromptService } from './services/prompt-service';
-import { ProviderService } from './services/provider-service';
-import { StreamingService } from './services/streaming-service';
+import { CacheService } from './cache';
+import { PromptService } from './prompt';
+import { ProviderService } from './provider';
+import { StreamingService } from './streaming';
 
 export class LLMService {
   private providerService: ProviderService;
@@ -114,7 +114,7 @@ export class LLMService {
         model: this.providerService.getModelForProvider(provider, aiProvider.model),
         prompt,
         temperature: options.temperature || 0.7,
-        maxOutputTokens: options.maxTokens || 4000,
+        maxOutputTokens: options.maxTokens || AI_TOKEN_LIMITS.DEFAULT_MAX_TOKENS,
       });
 
       const responseTime = Date.now() - startTime;

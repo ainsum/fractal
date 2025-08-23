@@ -5,9 +5,9 @@
 import { anthropic } from '@ai-sdk/anthropic';
 import { google } from '@ai-sdk/google';
 import { openai } from '@ai-sdk/openai';
-import { AI_PROVIDERS, ERROR_CODES } from '../../shared/constants';
-import { logger } from '../../shared/logger';
-import { AIError, type AIProvider, type EnvironmentVariables } from '../../shared/types';
+import { AI_PROVIDERS, ERROR_CODES } from '../shared/constants';
+import { logger } from '../shared/logger';
+import { AIError, type AIProvider, type EnvironmentVariables } from '../shared/types';
 
 export class ProviderService {
   private providers: Map<string, AIProvider> = new Map();
