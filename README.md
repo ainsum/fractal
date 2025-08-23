@@ -1,19 +1,19 @@
-# Fractal 🌐
+# Fractal Browser 🌐
 
-An AI-powered desktop web browser that generates website content using Large Language Models. Instead of fetching websites from the internet, this application creates realistic website content using AI when you enter a URL.
+An experimental AI-powered desktop web browser that generates website content using Large Language Models. Instead of fetching websites from the internet, this application creates simulated website content using AI when you enter a URL.
 
-## ✨ Features
+## Features
 
-- **AI-Powered Content Generation**: Generate realistic website content for any domain using state-of-the-art LLMs
+- **AI Content Generation**: Generate simulated website content for any domain using LLMs
 - **Multiple AI Providers**: Support for OpenAI GPT-4, Anthropic Claude, and Google Gemini
 - **Streaming Responses**: Real-time content generation with progress indicators
-- **Modern UI**: Clean, responsive interface with dark mode support
+- **Modern UI**: Clean interface with dark mode support
 - **Navigation Controls**: Back, forward, refresh, and home buttons
 - **History Management**: Track your browsing history
-- **Security**: Secure content sanitization and sandboxed rendering
+- **Security**: Content sanitization and sandboxed rendering
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -50,7 +50,7 @@ An AI-powered desktop web browser that generates website content using Large Lan
    npm run dev
    ```
 
-## 🛠️ Development
+## Development
 
 ### Available Scripts
 
@@ -64,9 +64,9 @@ An AI-powered desktop web browser that generates website content using Large Lan
 - `npm run format` - Format code with Biome
 - `npm run type-check` - Run TypeScript type checking
 
-### Git Hooks & Code Quality
+### Code Quality
 
-This project uses **Husky** and **lint-staged** for automated code quality checks:
+This project uses automated code quality checks:
 
 #### Pre-commit Hooks
 - **Linting**: Automatically runs Biome on staged files
@@ -81,11 +81,7 @@ This project uses **Husky** and **lint-staged** for automated code quality check
 - **Conventional Commits**: Enforces conventional commit message format
 - **Examples**: `feat: add new feature`, `fix: resolve bug`, `docs: update readme`
 
-#### Setup
-The hooks are automatically installed when you run `npm install`. To manually set up:
-```bash
-npm run prepare
-```
+The hooks are automatically installed when you run `npm install`.
 
 ### Project Structure
 
@@ -94,33 +90,39 @@ llm-browser/
 ├── src/
 │   ├── main/              # Main process (Electron backend)
 │   │   ├── main.ts        # Main process entry point
-│   │   ├── preload.ts     # Preload script for IPC
-│   │   └── llm-service.ts # AI service implementation
+│   │   └── preload.ts     # Preload script for IPC
 │   ├── renderer/          # Renderer process (Frontend)
 │   │   ├── renderer.ts    # Renderer entry point
 │   │   ├── browser-ui.ts  # Browser UI component
 │   │   └── styles/
 │   │       └── main.css   # Main styles
+│   ├── services/          # AI and utility services
+│   │   ├── llm.ts         # LLM service implementation
+│   │   ├── provider.ts    # AI provider management
+│   │   ├── streaming.ts   # Streaming response handling
+│   │   ├── cache.ts       # Response caching
+│   │   └── prompt.ts      # Prompt templates
 │   ├── shared/           # Shared types and utilities
 │   │   ├── types.ts      # TypeScript type definitions
-│   │   └── constants.ts  # Application constants
+│   │   ├── constants.ts  # Application constants
+│   │   └── logger.ts     # Logging utilities
 │   └── __tests__/        # Test files
 ├── assets/              # Icons and images
 ├── docs/               # Documentation
 └── config files
 ```
 
-## 🎯 Usage
+## Usage
 
 1. **Launch the application**
-   - The app will open with a welcome screen showing example URLs
+   - The app opens with a welcome screen showing example URLs
 
 2. **Enter a URL**
    - Type any domain in the address bar (e.g., `google.com`, `facebook.com`)
    - Press Enter or click the navigation button
 
 3. **Watch AI generate content**
-   - The app will use AI to generate realistic website content
+   - The app uses AI to generate simulated website content
    - You'll see a progress indicator during generation
    - Content appears in real-time as it's generated
 
@@ -129,7 +131,7 @@ llm-browser/
    - Switch between AI providers using the dropdown
    - Refresh to regenerate content
 
-## 🤖 AI Providers
+## AI Providers
 
 The application supports multiple AI providers:
 
@@ -148,7 +150,7 @@ The application supports multiple AI providers:
 - **Best for**: Fast generation, Google ecosystem integration
 - **Setup**: Add `GOOGLE_API_KEY` to your `.env` file
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -168,9 +170,9 @@ The application can be configured through the constants file (`src/shared/consta
 - **Default Provider**: Auto-select AI provider (default: OpenAI)
 - **Security Settings**: CSP policies and sandboxing
 
-## 🧪 Testing
+## Testing
 
-The application includes comprehensive tests:
+The application includes tests for core functionality:
 
 ```bash
 # Run all tests
@@ -190,9 +192,9 @@ npm run test:watch
 
 - **Unit Tests**: Core functionality and utilities
 - **Integration Tests**: IPC communication and AI service
-- **E2E Tests**: Full user workflows (using Playwright)
+- **Component Tests**: Browser UI functionality
 
-## 🔒 Security
+## Security
 
 The application implements several security measures:
 
@@ -202,7 +204,7 @@ The application implements several security measures:
 - **Secure IPC**: Type-safe communication between processes
 - **Environment Isolation**: No direct Node.js access in renderer
 
-## 🚀 Building for Production
+## Building for Production
 
 ### Create Distribution Packages
 
@@ -220,7 +222,7 @@ npm run make
 - **macOS**: `.dmg` and `.app`
 - **Linux**: `.deb`, `.rpm`, and `.AppImage`
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -236,11 +238,11 @@ npm run make
 - Update documentation as needed
 - Follow conventional commit messages
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Electron](https://electronjs.org/) - Cross-platform desktop app framework
 - [Vercel AI SDK](https://sdk.vercel.ai/) - AI integration toolkit
@@ -248,21 +250,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Biome](https://biomejs.dev/) - Fast linter and formatter
 - [Vitest](https://vitest.dev/) - Fast unit testing framework
 
-## 📞 Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/chcardoz/llm-browser/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/chcardoz/llm-browser/discussions)
-- **Email**: 59742506+chcardoz@users.noreply.github.com
 
-## 🔄 Changelog
+## Changelog
 
-### v1.0.0
-- Initial release
+### v0.0.1
+- Initial development version
 - AI-powered website generation
 - Multiple provider support
 - Modern UI with dark mode
-- Comprehensive testing suite
+- Basic testing suite
 
 ---
 
-**Note**: This application is for educational and experimental purposes. Generated content may not always be accurate or appropriate. Use responsibly and in accordance with AI provider terms of service.
+**Note**: This application is for experimental purposes. Generated content is simulated and may not always be accurate or appropriate. Use responsibly and in accordance with AI provider terms of service.
